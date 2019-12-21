@@ -8,5 +8,6 @@ sudo pip3 install pymysql -y
 sudo apt install php libapache2-mod-php php-mysql -y
 sudo a2dismod mpm_event
 sudo a2enmod mpm_prefork cgi
+sudo yes | sudo cp -i  sites-conf/000-default.conf /etc/apache2/sites-enabled/
 sudo systemctl restart apache2
 
