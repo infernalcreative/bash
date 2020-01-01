@@ -1,0 +1,18 @@
+upstream dynamic {
+zone upstream_dynamic 64k;
+    least_conn;
+      server test.domain:8080 weight=1 max_fails=2 fail_timeout=5s ;
+      server 45.142.214.71:80 weight=2 max_fails=2  fail_timeout=5s;
+  }
+index index.php index.html;
+
+server {
+  listen 80;
+  server_name test.domain www.test.domain;
+  proxy_set_header Host $http_host;
+  location / {
+    proxy_pass http://dynamic;
+  }
+ location ~* \.(js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
+    }
+}
