@@ -1,5 +1,7 @@
 #!/bin/bash
-
+#Debian/Ubuntu
+#apt install ffmpeg jq
+#
 # Входные параметры
 m3u8_url="$1"
 output_file="sd_streams.m3u8"
