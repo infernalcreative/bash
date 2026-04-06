@@ -53,7 +53,7 @@ while IFS= read -r line; do
         fi
 
         # Проверяем, является ли поток валидным (ширина и высота > 0) и SD (до 720×576)
-        if [[ $width -gt 0 ]] && [[ $height -gt 0 ]] && [[ $width -le 854 ]] && [[ $height -le 576 ]]; then
+        if [[ $width -gt 0 ]] && [[ $height -gt 0 ]] && [[ $width -le 1024 ]] && [[ $height -le 856 ]]; then
             echo "Найден SD поток: ${stream_url} (${width}x${height})"
             # Записываем заголовок M3U8 только один раз в начале
             if [[ ! -s "$output_file" ]]; then
